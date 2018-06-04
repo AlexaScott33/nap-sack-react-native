@@ -9,10 +9,17 @@ export default class Dashboard extends React.Component {
     render() {
         return (
             <View>
-                <Text>This is my Dashboard component</Text>
                 <Header />
                 <Trips />
             </View>
         );
     }
 }
+
+
+// const styles = StyleSheet.create({
+//     viewStyle: {
+        
+        
+//     }
+// })
