@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
+import store from '../store';
 
 import TripsList from './trips-list';
 import TripForm from './trip-form';
@@ -8,19 +9,7 @@ import TripForm from './trip-form';
 export default class Trips extends React.Component {
     constructor(props, context) {
         super(props, context);
-        this.state = {
-            trips: [
-                {
-                    place: 'New Zealand'
-                },
-                {
-                    place: 'Italy'
-                },
-                {
-                    place: 'NYC'
-                },
-            ]
-        };
+        this.state = store.getState();
     }
 
 

@@ -25,7 +25,7 @@ export default class TripsList extends React.Component {
     render() {
         return (
             <View>
-                <ListView 
+                <ListView
                     dataSource={this.state.dataSource}
                     renderRow={this.renderRow.bind(this)}>
                 </ListView>

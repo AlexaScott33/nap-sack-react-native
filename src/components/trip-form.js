@@ -1,26 +1,15 @@
 import React from 'react';
 import { StyleSheet, View, Text, ListView, TextInput, TouchableHighlight } from 'react-native';
+import store from '../store';
+
+import { addTrips } from '../actions/trips';
 
 
 export default class TripForm extends React.Component {
-    constructor(props, context) {
-        super(props, context);
-        // this.state = {
-        //     inputText: ''
-        // }
+
+    onChange(text) {
+        console.log(text);
     }
-
-    onAdd(trip) {
-        console.log('task added', trip);
-    }
-
-    // getInputValue() {
-    //     const { inputText } = this.state;
-    // }
-
-    // onChange(text) {
-    //     console.log('hi');
-    // }
 
     render() {
         const { navigate } = this.props.navigation;
@@ -29,14 +18,14 @@ export default class TripForm extends React.Component {
             <View style={viewStyle}>
                 <TextInput 
                     style={inputStyle}
-                    onChange={() => console.log('hi')}
+                    onChangeText={(text) => this.onChange(text)}
                     placeholder='New Trip'>
                 </TextInput>
 
                 <TouchableHighlight 
                     style={buttonStyle}
                     onPress={() => {
-                        this.onAdd()
+                        store.dispatch.addTrips();
                         navigate('Trips')
                     }}>
                     <Text style={buttonText}>Add</Text>

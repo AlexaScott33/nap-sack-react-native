@@ -3,10 +3,11 @@ import { StyleSheet, View, Text } from 'react-native';
 
 export default class TripRow extends React.Component {
     render() {
+        console.log('this is tripRow props', this.props);
         const { viewStyle, textStyle } = styles;
         return (
             <View style={viewStyle}>
-                <Text style={textStyle}>{this.props.trip.place}</Text>
+                <Text style={textStyle}>{this.props.trip}</Text>
             </View>
         )
     }
