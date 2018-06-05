@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableHighlight } from 'react-native';
 
 import TripsList from './trips-list';
 
@@ -20,8 +20,12 @@ export default class Trips extends React.Component {
             ]
         };
     }
+
+    onAdd() {
+        console.log('pressing button!!')
+    }
     render() {
-        const { viewStyle, textStyle, inputStyle } = styles;
+        const { viewStyle, textStyle, inputStyle, buttonStyle, buttonText } = styles;
         return (
             <View style={viewStyle}>
                 <Text style={textStyle}>My Trips</Text>
@@ -29,6 +33,13 @@ export default class Trips extends React.Component {
                     style={inputStyle}
                     placeholder='New Trip'>
                 </TextInput>
+
+                <TouchableHighlight 
+                    style={buttonStyle}
+                    onPress={this.onAdd.bind(this)}>
+                    <Text style={buttonText}>Add</Text>
+                </TouchableHighlight>
+
                 <TripsList trips={this.state.trips}/>
             </View>
         );
@@ -37,7 +48,9 @@ export default class Trips extends React.Component {
 
 const styles = StyleSheet.create({
     viewStyle: {
-        padding: 10
+        padding: 10,
+        backgroundColor: '#eeeeee',
+        flex: 1
     },
     textStyle: {
         fontSize: 25,
@@ -54,5 +67,20 @@ const styles = StyleSheet.create({
         fontSize: 18,
         borderWidth: 1,
         borderColor: '#87cefa'
-     }
+     },
+     buttonStyle: {
+        height: 45,
+        borderColor: '#87cefa',
+        borderWidth: 2,
+        backgroundColor: '#333',
+        margin: 20,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    buttonText: {
+        color: '#FAFAFA',
+        fontSize: 20,
+        fontWeight: '600'
+    }
 })
+

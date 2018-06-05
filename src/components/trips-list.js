@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, ListView } from 'react-native';
+import { StyleSheet, View, Text, ListView } from 'react-native';
 
 import TripRow from './trip-row';
 
@@ -22,7 +22,6 @@ export default class TripsList extends React.Component {
         )
     }
     render() {
-        // const { viewStyle, textStyle } = styles;
         return (
             <View>
                 <ListView 

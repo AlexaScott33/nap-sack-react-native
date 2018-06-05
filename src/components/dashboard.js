@@ -24,7 +24,6 @@ export default class Dashboard extends React.Component {
 const styles = StyleSheet.create({
     viewStyle: {
         alignSelf: 'center',
-        justifyContent: 'center',
         marginTop: 250
     },
      textStyle: {

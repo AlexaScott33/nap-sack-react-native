@@ -24,7 +24,8 @@ class App extends React.Component {
 const styles = StyleSheet.create({
   viewStyle: {
     flex: 1,
-    backgroundColor: 'black'
+    backgroundColor: 'black',
+    justifyContent: 'flex-start'
     // backgroundColor: '#fff9e0'
   },
 });
