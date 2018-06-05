@@ -9,7 +9,8 @@ export default class TripForm extends React.Component {
     }
     
     render() {
-        const { viewStyle, inputStyle, buttonStyle, buttonText } = styles;
+        const { navigate } = this.props.navigation;
+        const { viewStyle, inputStyle, buttonStyle, buttonText, cancelButton, cancelText } = styles;
         return (
             <View style={viewStyle}>
                 <TextInput 
@@ -19,8 +20,14 @@ export default class TripForm extends React.Component {
 
                 <TouchableHighlight 
                     style={buttonStyle}
-                    onPress={this.onAdd.bind(this)}>
+                    onPress={() => navigate('Trips')}>
                     <Text style={buttonText}>Add</Text>
+                </TouchableHighlight>
+
+                <TouchableHighlight 
+                    style={cancelButton}
+                    onPress={() => navigate('Trips')}>
+                    <Text style={cancelText}>Cancel</Text>
                 </TouchableHighlight>
             </View>
         );
@@ -30,7 +37,7 @@ export default class TripForm extends React.Component {
 const styles = StyleSheet.create({
     viewStyle: {
         backgroundColor: '#eeeeee',
-        flex: 1
+        flex: 1,
     },
     inputStyle: {
         height: 50,
@@ -55,6 +62,20 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     buttonText: {
+        color: '#FAFAFA',
+        fontSize: 20,
+        fontWeight: '600'
+    },
+    cancelButton: {
+        height: 45,
+        backgroundColor: '#87cefa',
+        marginRight: 20,
+        marginLeft: 20,
+        marginBottom: 20,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    cancelText: {
         color: '#FAFAFA',
         fontSize: 20,
         fontWeight: '600'

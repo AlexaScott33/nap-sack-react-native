@@ -35,7 +35,7 @@ export default class Trips extends React.Component {
                 <TouchableHighlight 
                     style={buttonStyle}
                     onPress={() => navigate('TripForm')}>
-                    <Text style={buttonText}>Add One</Text>
+                    <Text style={buttonText}>Add Trip</Text>
                 </TouchableHighlight>
             </View>
         );
@@ -46,7 +46,8 @@ const styles = StyleSheet.create({
     viewStyle: {
         padding: 10,
         backgroundColor: '#eeeeee',
-        flex: 1
+        flex: 1,
+        justifyContent: 'space-between',
     },
     textStyle: {
         fontSize: 25,
@@ -57,7 +58,7 @@ const styles = StyleSheet.create({
         height: 45,
         borderColor: '#87cefa',
         borderWidth: 2,
-        backgroundColor: '#333',
+        backgroundColor: '#333',        
         marginRight: 20,
         marginLeft: 20,
         marginBottom: 20,

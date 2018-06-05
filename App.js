@@ -35,8 +35,7 @@ const styles = StyleSheet.create({
 export default createStackNavigator({
   Dashboard: { screen: Dashboard },
   Trips: { screen: Trips },
-  TripForm: { screen: TripForm },
-  Header: { screen: Header }
+  TripForm: { screen: TripForm }
 });
 
 
