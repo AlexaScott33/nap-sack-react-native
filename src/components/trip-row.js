@@ -17,9 +17,12 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-between',
+        borderWidth: 1,
+        borderColor: '#919190',
         padding: 20,
-        marginBottom: 20,
+        marginTop: 20,
         marginRight: 20,
+        marginLeft: 20
     },
     textStyle: {
         fontSize: 20,
