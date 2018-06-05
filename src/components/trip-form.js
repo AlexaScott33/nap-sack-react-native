@@ -1,8 +1,9 @@
 import React from 'react';
 import { StyleSheet, View, Text, ListView, TextInput, TouchableHighlight } from 'react-native';
+// import { connect } from 'react-redux';
 import store from '../store';
 
-import { addTrips } from '../actions/trips';
+import { addTrip } from '../actions/trips';
 
 
 export default class TripForm extends React.Component {
@@ -12,6 +13,7 @@ export default class TripForm extends React.Component {
     }
 
     render() {
+        console.log('this is tripForms props', this.props);
         const { navigate } = this.props.navigation;
         const { viewStyle, inputStyle, buttonStyle, buttonText, cancelButton, cancelText } = styles;
         return (
@@ -25,7 +27,6 @@ export default class TripForm extends React.Component {
                 <TouchableHighlight 
                     style={buttonStyle}
                     onPress={() => {
-                        store.dispatch.addTrips();
                         navigate('Trips')
                     }}>
                     <Text style={buttonText}>Add</Text>
@@ -40,6 +41,8 @@ export default class TripForm extends React.Component {
         );
     }
 }
+
+// export default connect()(TripForm);
 
 const styles = StyleSheet.create({
     viewStyle: {

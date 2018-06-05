@@ -3,7 +3,6 @@ import { StyleSheet, View, Text } from 'react-native';
 
 export default class TripRow extends React.Component {
     render() {
-        console.log('this is tripRow props', this.props);
         const { viewStyle, textStyle } = styles;
         return (
             <View style={viewStyle}>
