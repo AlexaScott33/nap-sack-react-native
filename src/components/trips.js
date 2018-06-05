@@ -1,9 +1,25 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
 
-
+import TripsList from './trips-list';
 
 export default class Trips extends React.Component {
+    constructor(props, context) {
+        super(props, context);
+        this.state = {
+            trips: [
+                {
+                    place: 'New Zealand'
+                },
+                {
+                    place: 'Italy'
+                },
+                {
+                    place: 'NYC'
+                },
+            ]
+        };
+    }
     render() {
         const { viewStyle, textStyle, inputStyle } = styles;
         return (
@@ -11,7 +27,9 @@ export default class Trips extends React.Component {
                 <Text style={textStyle}>My Trips</Text>
                 <TextInput 
                     style={inputStyle}
-                    placeholder='New Trip'></TextInput>
+                    placeholder='New Trip'>
+                </TextInput>
+                <TripsList trips={this.state.trips}/>
             </View>
         );
     }
@@ -23,14 +41,15 @@ const styles = StyleSheet.create({
     },
     textStyle: {
         fontSize: 25,
-        alignSelf: 'center'
+        alignSelf: 'center',
+        marginTop: 10
     },
      inputStyle: {
         height: 50,
-        marginTop: 10,
+        marginTop: 15,
         padding: 4,
         fontSize: 18,
         borderWidth: 1,
-        borderColor: '#48bbec'
+        borderColor: '#87cefa'
      }
 })

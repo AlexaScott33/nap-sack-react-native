@@ -12,7 +12,7 @@ class App extends React.Component {
     const { viewStyle } = styles;
     return (
       <View style={viewStyle}>
-        <View style={viewStyle}>
+        <View>
           <Header />
           <Dashboard />
         </View>
@@ -24,7 +24,8 @@ class App extends React.Component {
 const styles = StyleSheet.create({
   viewStyle: {
     flex: 1,
-    backgroundColor: '#fff9e0'
+    backgroundColor: 'black'
+    // backgroundColor: '#fff9e0'
   },
 });
 
