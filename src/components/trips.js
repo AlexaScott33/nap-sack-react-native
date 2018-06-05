@@ -7,6 +7,7 @@ export default class Trips extends React.Component {
         return (
             <View>
                 <Text style={textStyle}>My Trips</Text>
+                <Text>New task</Text>
             </View>
         );
     }
@@ -14,8 +15,6 @@ export default class Trips extends React.Component {
 
 const styles = StyleSheet.create({
     textStyle: {
-        fontSize: 25,
-
-        
+        fontSize: 25
     }
 })
