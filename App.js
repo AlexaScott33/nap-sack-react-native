@@ -6,19 +6,13 @@ import Header from './src/components/header';
 import Dashboard from './src/components/dashboard';
 import Trips from './src/components/trips';
 
-// const App = createStackNavigator({
-//   Dashboard: { screen: Dashboard },
-//   Trips: { screen: Trips }
-// });
-
-// export default App;
 
 class App extends React.Component {
   render() {
     const { viewStyle } = styles;
     return (
       <View style={viewStyle}>
-        <View>
+        <View style={viewStyle}>
           <Header />
           <Dashboard />
         </View>
@@ -27,15 +21,19 @@ class App extends React.Component {
   }
 }
 
-export default createStackNavigator({
-  Dashboard: { screen: Dashboard },
-  Trips: { screen: Trips }
-});
-
-
 const styles = StyleSheet.create({
   viewStyle: {
     flex: 1,
     backgroundColor: '#fff9e0'
   },
 });
+
+
+export default createStackNavigator({
+  Dashboard: { screen: Dashboard },
+  Trips: { screen: Trips },
+  Header: { screen: Header }
+});
+
+
+
