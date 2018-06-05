@@ -1,5 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View, ListView } from 'react-native';
+import { StyleSheet, View, ListView } from 'react-native';
+
+import TripRow from './trip-row';
 
 export default class TripsList extends React.Component {
     constructor(props, context) {
@@ -16,7 +18,7 @@ export default class TripsList extends React.Component {
 
     renderRow(trip) {
         return (
-            <Text>{trip.place}</Text>
+            <TripRow trip={trip} />
         )
     }
     render() {
