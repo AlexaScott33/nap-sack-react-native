@@ -21,6 +21,7 @@ export default class TripsList extends React.Component {
             <TripRow trip={trip} />
         )
     }
+    
     render() {
         return (
             <View>

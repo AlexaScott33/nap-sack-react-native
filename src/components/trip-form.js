@@ -3,11 +3,25 @@ import { StyleSheet, View, Text, ListView, TextInput, TouchableHighlight } from 
 
 
 export default class TripForm extends React.Component {
-
-    onAdd() {
-        console.log('pressing button!!')
+    constructor(props, context) {
+        super(props, context);
+        // this.state = {
+        //     inputText: ''
+        // }
     }
-    
+
+    onAdd(trip) {
+        console.log('task added', trip);
+    }
+
+    // getInputValue() {
+    //     const { inputText } = this.state;
+    // }
+
+    // onChange(text) {
+    //     console.log('hi');
+    // }
+
     render() {
         const { navigate } = this.props.navigation;
         const { viewStyle, inputStyle, buttonStyle, buttonText, cancelButton, cancelText } = styles;
@@ -15,12 +29,16 @@ export default class TripForm extends React.Component {
             <View style={viewStyle}>
                 <TextInput 
                     style={inputStyle}
+                    onChange={() => console.log('hi')}
                     placeholder='New Trip'>
                 </TextInput>
 
                 <TouchableHighlight 
                     style={buttonStyle}
-                    onPress={() => navigate('Trips')}>
+                    onPress={() => {
+                        this.onAdd()
+                        navigate('Trips')
+                    }}>
                     <Text style={buttonText}>Add</Text>
                 </TouchableHighlight>
 
@@ -52,9 +70,7 @@ const styles = StyleSheet.create({
      },
      buttonStyle: {
         height: 45,
-        borderColor: '#87cefa',
-        borderWidth: 2,
-        backgroundColor: '#333',
+        backgroundColor: '#87cefa',
         marginRight: 20,
         marginLeft: 20,
         marginBottom: 20,
@@ -68,7 +84,7 @@ const styles = StyleSheet.create({
     },
     cancelButton: {
         height: 45,
-        backgroundColor: '#87cefa',
+        backgroundColor: '#333',
         marginRight: 20,
         marginLeft: 20,
         marginBottom: 20,

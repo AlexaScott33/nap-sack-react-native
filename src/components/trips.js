@@ -23,6 +23,7 @@ export default class Trips extends React.Component {
         };
     }
 
+
     render() {
         const { navigate } = this.props.navigation;
         const { viewStyle, textStyle, buttonStyle, buttonText } = styles;
