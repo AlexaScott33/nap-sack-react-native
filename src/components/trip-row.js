@@ -1,19 +1,23 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, TouchableHighlight } from 'react-native';
 
 export default class TripRow extends React.Component {
     render() {
-        const { viewStyle, textStyle } = styles;
+        const { navigate } = this.props.nav;
+        const { touchStyle, textStyle } = styles;
         return (
-            <View style={viewStyle}>
-                <Text style={textStyle}>{this.props.trip}</Text>
+            <View>
+                <TouchableHighlight style={touchStyle}
+                    onPress={() => navigate('PackingList')}>
+                        <Text style={textStyle}>{this.props.trip}</Text>
+                 </TouchableHighlight>
             </View>
         )
     }
 }
 
 const styles = StyleSheet.create({
-    viewStyle: {
+    touchStyle: {
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-between',

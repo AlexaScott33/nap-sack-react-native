@@ -18,7 +18,7 @@ export default class TripsList extends React.Component {
 
     renderRow(trip) {
         return (
-            <TripRow trip={trip} />
+            <TripRow trip={trip} nav={this.props.nav} />
         )
     }
     

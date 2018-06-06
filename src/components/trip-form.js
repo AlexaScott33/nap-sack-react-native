@@ -8,19 +8,21 @@ import { addTrip } from '../actions/trips';
 
 export default class TripForm extends React.Component {
 
-    onChange(text) {
-        console.log(text);
-    }
+    // onChange(text) {
+    //     this.setState({ text });
+    // }
 
     render() {
-        console.log('this is tripForms props', this.props);
+        console.log('state ffrom trip-form', this.state);
+        // console.log('this is tripForms props', this.props);
         const { navigate } = this.props.navigation;
         const { viewStyle, inputStyle, buttonStyle, buttonText, cancelButton, cancelText } = styles;
         return (
             <View style={viewStyle}>
                 <TextInput 
                     style={inputStyle}
-                    onChangeText={(text) => this.onChange(text)}
+                    onChangeText={(text) => console.log(text)}
+                    // onSubmitEditing={(text) => this.setState({text})}
                     placeholder='New Trip'>
                 </TextInput>
 

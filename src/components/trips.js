@@ -14,13 +14,14 @@ export default class Trips extends React.Component {
 
 
     render() {
+        // console.log('this is the state', this.state.trips);
         const { navigate } = this.props.navigation;
         const { viewStyle, textStyle, buttonStyle, buttonText } = styles;
         return (
             <View style={viewStyle}>
                 <Text style={textStyle}>My Trips</Text>
                 
-                <TripsList trips={this.state.trips}/>
+                <TripsList trips={this.state.trips} nav={this.props.navigation}/>
 
                 <TouchableHighlight 
                     style={buttonStyle}
