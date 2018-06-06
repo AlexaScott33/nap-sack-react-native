@@ -17,8 +17,7 @@ export default createStackNavigator({
   Trips: { screen: Trips },
   TripForm: { screen: TripForm },
   PackingList: { screen: PackingList },
-  TripList: { screen: TripList },
-  TripRow: { screen: TripRow }
+  TripList: { screen: TripList }
 });
 
 
