@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
+import { connect } from 'react-redux';
 
 import Header from './header';
 import Trips from './trips';
@@ -19,6 +20,7 @@ export default class Dashboard extends React.Component {
         );
     }
 }
+
 
 
 const styles = StyleSheet.create({

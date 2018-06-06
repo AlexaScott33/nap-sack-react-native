@@ -1,5 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, ListView } from 'react-native';
+import { connect } from 'react-redux';
+import { addtrip } from '../actions/trips';
 
 import TripRow from './trip-row';
 
@@ -23,6 +25,9 @@ export default class TripsList extends React.Component {
     }
     
     render() {
+        //const tripsArr = this.props.trips.map(trip => <Text>{trip}</Text>);
+        // console.log('state logging from TripList', this.state);
+        // console.log('TripLists Comp props:', tripsArr);
         return (
             <View>
                 <ListView
@@ -34,7 +39,5 @@ export default class TripsList extends React.Component {
     }
 }
 
-// TripsList.propTypes = {
-//     trips: React.PropTypes
-//         .arrayOf(React.PropTypes.object).isRequired
-// };
+
+

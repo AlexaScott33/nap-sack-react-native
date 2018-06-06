@@ -1,34 +1,43 @@
 import React from 'react';
 import { StyleSheet, View, Text, ListView, TextInput, TouchableHighlight } from 'react-native';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import store from '../store';
 
 import { addTrip } from '../actions/trips';
+import { tripsReducer } from '../reducers/trips';
 
+class TripForm extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            string: ''
+        }
 
-export default class TripForm extends React.Component {
+    }
 
-    // onChange(text) {
-    //     this.setState({ text });
-    // }
+    onChangeTextHandler(text) {
+        this.setState({ 
+            string: text 
+        });
+    }
 
     render() {
-        console.log('state ffrom trip-form', this.state);
-        // console.log('this is tripForms props', this.props);
+        // console.log('TripForm Comp props:', this.props.trips);
         const { navigate } = this.props.navigation;
         const { viewStyle, inputStyle, buttonStyle, buttonText, cancelButton, cancelText } = styles;
         return (
             <View style={viewStyle}>
                 <TextInput 
                     style={inputStyle}
-                    onChangeText={(text) => console.log(text)}
-                    // onSubmitEditing={(text) => this.setState({text})}
+                    onChangeText={this.onChangeTextHandler.bind(this)}
                     placeholder='New Trip'>
                 </TextInput>
 
                 <TouchableHighlight 
                     style={buttonStyle}
                     onPress={() => {
+                        console.log('dispatching action with no errors! and here is the local state:', this.state.string);
+                        this.props.dispatch(addTrip(this.state.string));
                         navigate('Trips')
                     }}>
                     <Text style={buttonText}>Add</Text>
@@ -44,7 +53,13 @@ export default class TripForm extends React.Component {
     }
 }
 
-// export default connect()(TripForm);
+const mapStateToProps = (state) => {    
+    return {
+        trips: state.trips
+    }
+};
+
+export default connect(mapStateToProps)(TripForm);
 
 const styles = StyleSheet.create({
     viewStyle: {

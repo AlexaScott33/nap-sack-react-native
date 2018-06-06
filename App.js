@@ -1,48 +1,20 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { createStackNavigator } from 'react-navigation';
+import { Provider } from 'react-redux';
+import store from './src/store';
 
-import Header from './src/components/header';
-import Dashboard from './src/components/dashboard';
-import Trips from './src/components/trips';
-import TripForm from './src/components/trip-form';
-import TripList from './src/components/trips-list';
-import TripRow from './src/components/trip-row';
-import PackingList from './src/components/packing-list';
+import Route from './Route';
 
 
-class App extends React.Component {
+export default class App extends React.Component {
   render() {
-    const { viewStyle } = styles;
     return (
-      <View style={viewStyle}>
-        <View>
-          <Header />
-          <Dashboard />
-        </View>
-      </View>
+      <Provider store={store}>
+        <Route />
+      </Provider>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  viewStyle: {
-    flex: 1,
-    backgroundColor: 'black',
-    justifyContent: 'flex-start'
-    // backgroundColor: '#fff9e0'
-  },
-});
-
-
-export default createStackNavigator({
-  Dashboard: { screen: Dashboard },
-  Trips: { screen: Trips },
-  TripForm: { screen: TripForm },
-  PackingList: { screen: PackingList },
-  TripList: { screen: TripList },
-  TripRow: { screen: TripRow }
-});
 
 
 

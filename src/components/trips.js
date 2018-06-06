@@ -1,27 +1,32 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
+import { connect } from 'react-redux';
 import store from '../store';
+import { addTrip } from '../actions/trips';
+import { tripsReducer } from '../reducers/trips';
 
 import TripsList from './trips-list';
 import TripForm from './trip-form';
 
-export default class Trips extends React.Component {
+
+
+class Trips extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = store.getState();
     }
 
-
     render() {
-        // console.log('this is the state', this.state.trips);
+        //console.log('this is the state logging from Trips Comp', this.state.trips);
+        //console.log('Trips Comp props:', this.props.trips);
         const { navigate } = this.props.navigation;
         const { viewStyle, textStyle, buttonStyle, buttonText } = styles;
         return (
             <View style={viewStyle}>
                 <Text style={textStyle}>My Trips</Text>
                 
-                <TripsList trips={this.state.trips} nav={this.props.navigation}/>
+                <TripsList trips={this.props.trips} nav={this.props.navigation}/>
 
                 <TouchableHighlight 
                     style={buttonStyle}
@@ -32,6 +37,17 @@ export default class Trips extends React.Component {
         );
     }
 }
+
+const mapStateToProps = (state) => {
+    console.log('THIS IS THE STATE FROM TRIPS COMPONENT:', state);
+    
+    return {
+        trips: state.trips
+    }
+};
+
+export default connect(mapStateToProps)(Trips);
+
 
 const styles = StyleSheet.create({
     viewStyle: {
@@ -63,6 +79,7 @@ const styles = StyleSheet.create({
         fontWeight: '600'
     }
 });
+
 
 
 
