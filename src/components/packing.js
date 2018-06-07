@@ -3,9 +3,7 @@ import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 import { connect } from 'react-redux';
 import store from '../store';
 
-import TripsList from './trips-list';
-
-class Trips extends React.Component {
+class Packing extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = store.getState();
@@ -16,14 +14,14 @@ class Trips extends React.Component {
         const { viewStyle, textStyle, buttonStyle, buttonText } = styles;
         return (
             <View style={viewStyle}>
-                <Text style={textStyle}>My Trips</Text>
+                <Text style={textStyle}>Packing List</Text>
                 
-                <TripsList trips={this.props.trips} nav={this.props.navigation}/>
+                {/* <TripsList trips={this.props.trips} nav={this.props.navigation}/> */}
 
                 <TouchableHighlight 
                     style={buttonStyle}
-                    onPress={() => navigate('TripForm')}>
-                    <Text style={buttonText}>Add Trip</Text>
+                    onPress={() => navigate('PackingForm')}>
+                    <Text style={buttonText}>Add Item</Text>
                 </TouchableHighlight>
             </View>
         );
@@ -31,13 +29,13 @@ class Trips extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+    console.log('this is the state from packing', state);
     return {
-        trips: state.trips
+        items: state.items
     }
 };
 
-export default connect(mapStateToProps)(Trips);
-
+export default connect(mapStateToProps)(Packing);
 
 const styles = StyleSheet.create({
     viewStyle: {
@@ -69,7 +67,3 @@ const styles = StyleSheet.create({
         fontWeight: '600'
     }
 });
-
-
-
-

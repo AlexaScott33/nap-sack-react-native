@@ -12,6 +12,7 @@ export default class Header extends React.Component {
     }
 }
 
+
 const styles = StyleSheet.create({
     viewStyle: {
         backgroundColor: '#87cefa',

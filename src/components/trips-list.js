@@ -34,7 +34,7 @@ export default class TripsList extends React.Component {
                       key={index} 
                       style={swipeButtonStyle}>
                     <TouchableHighlight 
-                        onPress={() => navigate('PackingList')}>
+                        onPress={() => navigate('Packing')}>
                             <Text style={textStyle}>{trip}</Text>
                     </TouchableHighlight>
             </Swipeout>
