@@ -3,6 +3,8 @@ import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 import { connect } from 'react-redux';
 import store from '../store';
 
+import PackingList from './packing-list';
+
 class Packing extends React.Component {
     constructor(props, context) {
         super(props, context);
@@ -16,7 +18,7 @@ class Packing extends React.Component {
             <View style={viewStyle}>
                 <Text style={textStyle}>Packing List</Text>
                 
-                {/* <TripsList trips={this.props.trips} nav={this.props.navigation}/> */}
+                <PackingList items={this.props.items} nav={this.props.navigation}/>
 
                 <TouchableHighlight 
                     style={buttonStyle}
@@ -29,13 +31,13 @@ class Packing extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log('this is the state from packing', state);
     return {
-        items: state.items
+        items: state.packingListReducer.items
     }
 };
 
 export default connect(mapStateToProps)(Packing);
+
 
 const styles = StyleSheet.create({
     viewStyle: {

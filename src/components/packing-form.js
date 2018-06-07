@@ -2,39 +2,38 @@ import React from 'react';
 import { StyleSheet, View, Text, ListView, TextInput, TouchableHighlight } from 'react-native';
 import { connect } from 'react-redux';
 
+import { addPackingItem } from '../actions/packing';
 
-import { addTrip } from '../actions/trips';
+class PackingForm extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            string: ''
+        }
 
-export default class PackingForm extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         string: ''
-    //     }
+    }
 
-    // }
-
-    // onChangeTextHandler(text) {
-    //     this.setState({ 
-    //         string: text 
-    //     });
-    // }
+    onChangeTextHandler(text) {
+        this.setState({ 
+            string: text 
+        });
+    }
 
     render() {
-        // console.log('TripForm Comp props:', this.props.trips);
         const { navigate } = this.props.navigation;
         const { viewStyle, inputStyle, buttonStyle, buttonText, cancelButton, cancelText } = styles;
         return (
             <View style={viewStyle}>
                 <TextInput 
                     style={inputStyle}
-                    // onChangeText={this.onChangeTextHandler.bind(this)}
+                    onChangeText={this.onChangeTextHandler.bind(this)}
                     placeholder='New Item'>
                 </TextInput>
 
                 <TouchableHighlight 
                     style={buttonStyle}
                     onPress={() => {
+                        this.props.dispatch(addPackingItem(this.state.string));
                         navigate('Packing')
                     }}>
                     <Text style={buttonText}>Add</Text>
@@ -50,13 +49,13 @@ export default class PackingForm extends React.Component {
     }
 }
 
-// const mapStateToProps = (state) => {    
-//     return {
-//         trips: state.trips
-//     }
-// };
+const mapStateToProps = (state) => { 
+    return {
+        trips: state.items
+    }
+};
 
-// export default connect(mapStateToProps)(TripForm);
+export default connect(mapStateToProps)(PackingForm);
 
 const styles = StyleSheet.create({
     viewStyle: {

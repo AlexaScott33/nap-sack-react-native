@@ -8,7 +8,6 @@ export default class TripsList extends React.Component {
         this.state = {
             tripToDelete: ''
         }
-
     }
 
     deleteTrip() {
