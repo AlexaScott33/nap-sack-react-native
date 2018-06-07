@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 import { connect } from 'react-redux';
+import { tripsReducer } from '../reducers/trips';
+
 import store from '../store';
 
 import TripsList from './trips-list';
@@ -12,6 +14,7 @@ class Trips extends React.Component {
     }
 
     render() {
+        console.log('this is trips props:', this.props.trips);
         const { navigate } = this.props.navigation;
         const { viewStyle, textStyle, buttonStyle, buttonText } = styles;
         return (
@@ -31,8 +34,9 @@ class Trips extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+    // console.log('this is the state from trips:', state.tripsReducer.trips);
     return {
-        trips: state.trips
+        trips: state.tripsReducer.trips
     }
 };
 

@@ -19,6 +19,7 @@ export default class TripsList extends React.Component {
         console.log(array);
     }
     render() {
+        // console.log('this is tripLists props:', this.props.trips);
         const swipeoutBtns = [
             {
                 text: 'Delete',
