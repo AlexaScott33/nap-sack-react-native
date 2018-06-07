@@ -1,9 +1,5 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
-import { connect } from 'react-redux';
-
-import Header from './header';
-import Trips from './trips';
 
 
 export default class Dashboard extends React.Component {
@@ -15,7 +11,8 @@ export default class Dashboard extends React.Component {
                 <Text style={textStyle}>Welcome to Nap Sack </Text>
                 <Button 
                     title='Start Planning'
-                    onPress={() => navigate('Trips')}></Button>
+                    onPress={() => navigate('Trips')}>
+                </Button>
             </View>
         );
     }

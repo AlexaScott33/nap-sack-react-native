@@ -18,8 +18,6 @@ class Trips extends React.Component {
     }
 
     render() {
-        //console.log('this is the state logging from Trips Comp', this.state.trips);
-        //console.log('Trips Comp props:', this.props.trips);
         const { navigate } = this.props.navigation;
         const { viewStyle, textStyle, buttonStyle, buttonText } = styles;
         return (
@@ -39,8 +37,6 @@ class Trips extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log('THIS IS THE STATE FROM TRIPS COMPONENT:', state);
-    
     return {
         trips: state.trips
     }

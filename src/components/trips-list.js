@@ -1,19 +1,43 @@
 import React from 'react';
-import { StyleSheet, View, Text, ListView, TouchableHighlight  } from 'react-native';
-import { connect } from 'react-redux';
-import { addtrip } from '../actions/trips';
-
+import { StyleSheet, View, Text, TouchableHighlight  } from 'react-native';
+import Swipeout from 'react-native-swipeout';
 
 export default class TripsList extends React.Component {
-    render() {
-        const { navigate } = this.props.nav;
-        const { touchStyle, textStyle } = styles;
+    constructor(props) {
+        super(props);
+        this.state = {
+            tripToDelete: ''
+        }
 
-        const tripsArr = this.props.trips.map(trip => (
-                            <TouchableHighlight
-                                onPress={() => navigate('PackingList')}>
-                                 <Text style={textStyle}>{trip}</Text>
-                            </TouchableHighlight>
+    }
+
+    deleteTrip() {
+        let array = [...this.props.trips];
+        // var index = array.indexOf(e.target.value);
+        array.splice(array, 1);
+        // let index = array.indexOf(e.target.value);
+        console.log(array);
+    }
+    render() {
+        const swipeoutBtns = [
+            {
+                text: 'Delete',
+                backgroundColor: 'red',
+                onPress: () => { this.deleteTrip() }
+            }
+        ]
+        const { navigate } = this.props.nav;
+        const { textStyle, swipeButtonStyle } = styles;
+
+        const tripsArr = this.props.trips.map((trip, index) => (
+            <Swipeout right={swipeoutBtns} 
+                      key={index} 
+                      style={swipeButtonStyle}>
+                    <TouchableHighlight 
+                        onPress={() => navigate('PackingList')}>
+                            <Text style={textStyle}>{trip}</Text>
+                    </TouchableHighlight>
+            </Swipeout>
         ));
         return (
             <View>
@@ -31,8 +55,10 @@ const styles = StyleSheet.create({
         borderColor: '#919190',
         padding: 20,
         marginTop: 20,
-        marginRight: 20,
         marginLeft: 20
+    },
+    swipeButtonStyle: {
+        backgroundColor: '#eeeeee'
     }
 });
 
