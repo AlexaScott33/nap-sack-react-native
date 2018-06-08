@@ -13,7 +13,7 @@ export default class TripsList extends React.Component {
     deleteTrip() {
         let array = [...this.props.trips];
         // var index = array.indexOf(e.target.value);
-        array.splice(array, 1);
+        // array.splice(array, 1);
         // let index = array.indexOf(e.target.value);
         console.log(array);
     }

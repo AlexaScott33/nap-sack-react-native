@@ -1,10 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
+import Header from './header';
+
 export default class Dashboard extends React.Component {
     render() {
         const { navigate } = this.props.navigation;
-        const { viewStyle, textStyle } = styles;
+        const { viewStyle, textStyle, container } = styles;
         return (
             <View style={viewStyle}>
                 <Text style={textStyle}>Welcome to Nap Sack </Text>
@@ -20,6 +22,10 @@ export default class Dashboard extends React.Component {
 
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: 'black'
+    },
     viewStyle: {
         alignSelf: 'center',
         marginTop: 250
@@ -27,4 +33,6 @@ const styles = StyleSheet.create({
      textStyle: {
          fontSize: 20
      }
-})
+});
+
+
