@@ -12,7 +12,6 @@ class Trips extends React.Component {
     }
 
     render() {
-        console.log('this is trips props:', this.props.trips);
         const { navigate } = this.props.navigation;
         const { viewStyle, textStyle, buttonStyle, buttonText } = styles;
         return (
